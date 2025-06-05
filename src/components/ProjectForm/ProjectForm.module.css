@@ -1,0 +1,110 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sectionTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 8px;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 8px;
+}
+
+.projectForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.projectForm input:nth-child(3) {
+  grid-column: 1 / 3;
+}
+
+.projectForm button {
+  grid-column: 1 / 3;
+  justify-self: center;
+  min-width: 200px;
+}
+
+.input {
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+  background: var(--card-bg);
+  color: var(--text-color);
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s,
+    transform 0.2s;
+  will-change: transform;
+}
+
+.input:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.1);
+  transform: scale(1.02);
+}
+
+.button {
+  padding: 12px;
+  background-color: var(--accent-color);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  transition:
+    background-color 0.3s,
+    transform 0.2s;
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.button:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.button:active::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.3) 10%,
+    transparent 10.01%
+  );
+  transform: translate(-50%, -50%) scale(0);
+  animation: pulse 0.3s ease-out;
+}
+
+@keyframes pulse {
+  to {
+    transform: translate(-50%, -50%) scale(4);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .projectForm {
+    grid-template-columns: 1fr;
+  }
+
+  .projectForm input:nth-child(3),
+  .projectForm button {
+    grid-column: 1 / 2;
+  }
+
+  .projectForm button {
+    min-width: 100%;
+  }
+}

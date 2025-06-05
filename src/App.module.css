@@ -1,479 +1,77 @@
 .app {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 24px;
-    min-height: 100vh;
-    background: transparent;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px;
+  min-height: 100vh;
+  background: transparent;
 }
 
 .title {
-    font-size: 28px;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 40px;
-    background: linear-gradient(to right, var(--accent-color), #2563eb);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 40px;
+  background: linear-gradient(to right, var(--accent-color), #2563eb);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 
 .content {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-}
-
-.section {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.sectionTitle {
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--text-color);
-    margin-bottom: 8px;
-    border-bottom: 2px solid var(--border-color);
-    padding-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 
 .signOutButton {
-    position: absolute;
-    top: 24px;
-    right: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 50%;
-    box-shadow: 0 2px 4px var(--shadow-color);
-    transition: background-color 0.3s, transform 0.2s;
-    will-change: transform;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  box-shadow: 0 2px 4px var(--shadow-color);
+  transition:
+    background-color 0.3s,
+    transform 0.2s;
+  will-change: transform;
 }
 
 .signOutButton:hover {
-    background-color: var(--border-color);
-    transform: translateY(-1px);
-}
-
-.authContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: calc(100vh - 120px);
-}
-
-.authCard {
-    background: var(--card-bg);
-    padding: 40px;
-    border-radius: 16px;
-    box-shadow: 0 10px 15px -3px var(--shadow-color), 0 4px 6px -2px var(--shadow-color);
-    width: 100%;
-    max-width: 400px;
-}
-
-.authTitle {
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--text-color);
-    margin-bottom: 24px;
-    text-align: center;
-}
-
-.authForm {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-bottom: 24px;
-}
-
-.input {
-    padding: 12px;
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    font-size: 16px;
-    outline: none;
-    background: var(--card-bg);
-    color: var(--text-color);
-    transition: border-color 0.3s, box-shadow 0.3s, transform 0.2s;
-    will-change: transform;
-}
-
-.input:focus {
-    border-color: var(--accent-color);
-    box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.1);
-    transform: scale(1.02);
-}
-
-.button {
-    padding: 12px;
-    background-color: var(--accent-color);
-    color: #ffffff;
-    border: none;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: 500;
-    transition: background-color 0.3s, transform 0.2s;
-    position: relative;
-    overflow: hidden;
-    will-change: transform;
-}
-
-.button:hover {
-    background-color: var(--accent-hover);
-    transform: translateY(-1px);
-}
-
-.button:active::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 10%, transparent 10.01%);
-    transform: translate(-50%, -50%) scale(0);
-    animation: pulse 0.3s ease-out;
-}
-
-@keyframes pulse {
-    to {
-        transform: translate(-50%, -50%) scale(4);
-        opacity: 0;
-    }
-}
-
-.googleButton {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 50%;
-    box-shadow: 0 2px 4px var(--shadow-color);
-    transition: background-color 0.3s, transform 0.2s;
-    will-change: transform;
-}
-
-.googleButton:hover {
-    background-color: var(--border-color);
-    transform: translateY(-1px);
-}
-
-.authFooter {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    margin-top: 24px;
-}
-
-.forgotPasswordButton {
-    background: none;
-    border: none;
-    color: var(--secondary-accent);
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-.forgotPasswordButton:hover {
-    color: var(--secondary-accent-hover);
-    text-decoration: underline;
-}
-
-.toggleButton {
-    background: none;
-    border: none;
-    color: var(--secondary-accent);
-    font-size: 14px;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-.toggleButton:hover {
-    color: var(--secondary-accent-hover);
-    text-decoration: underline;
-}
-
-.error {
-    color: var(--error-color);
-    font-size: 14px;
-    text-align: center;
-    margin-bottom: 16px;
-}
-
-.modalBackdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.modal {
-    background: var(--card-bg);
-    padding: 24px;
-    border-radius: 12px;
-    box-shadow: 0 10px 15px -3px var(--shadow-color);
-    width: 100%;
-    max-width: 360px;
-}
-
-.modalTitle {
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--text-color);
-    margin-bottom: 16px;
-    text-align: center;
-}
-
-.resetForm {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.successMessage {
-    color: #16a34a;
-    font-size: 14px;
-    text-align: center;
-}
-
-.modalActions {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-}
-
-.cancelButton {
-    padding: 12px;
-    background-color: var(--border-color);
-    color: var(--text-color);
-    border: none;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    will-change: transform;
-}
-
-.cancelButton:hover {
-    background-color: #d1d5db;
-    transform: translateY(-1px);
-}
-
-.projectForm {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-}
-
-.projectForm input:nth-child(3) {
-    grid-column: 1 / 3;
-}
-
-.projectForm button {
-    grid-column: 1 / 3;
-    justify-self: center;
-    min-width: 200px;
-}
-
-.projectList {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.project {
-    background: var(--card-bg);
-    padding: 24px;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -1px var(--shadow-color);
-    animation: fadeIn 0.5s ease-in;
-    will-change: transform, opacity;
-}
-
-.project:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 15px -3px var(--shadow-color);
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.projectTitle {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--text-color);
-    margin: 0 0 12px;
-}
-
-.projectText {
-    font-size: 14px;
-    color: var(--secondary-text);
-    margin: 6px 0;
-}
-
-.techStack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 12px 0;
-}
-
-.techTag {
-    padding: 4px 8px;
-    background-color: var(--card-bg);
-    border: 1px solid var(--secondary-accent);
-    border-radius: 12px;
-    font-size: 12px;
-    color: var(--secondary-accent);
-    transition: background-color 0.3s, transform 0.2s;
-    will-change: transform;
-}
-
-.techTag:hover {
-    background-color: var(--secondary-accent);
-    color: #ffffff;
-    transform: scale(1.05);
-}
-
-.notesButton {
-    padding: 8px 16px;
-    background-color: var(--accent-color);
-    color: #ffffff;
-    border: none;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    will-change: transform;
-}
-
-.notesButton:hover {
-    background-color: var(--accent-hover);
-    transform: translateY(-1px);
-}
-
-.searchInput {
-    padding: 12px;
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    font-size: 16px;
-    outline: none;
-    background: var(--card-bg);
-    color: var(--text-color);
-    transition: border-color 0.3s, box-shadow 0.3s;
-    margin-bottom: 16px;
-}
-
-.searchInput:focus {
-    border-color: var(--accent-color);
-    box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.1);
-}
-
-.emptyMessage {
-    font-size: 16px;
-    color: var(--secondary-text);
-    text-align: center;
-    padding: 16px;
-    background: var(--card-bg);
-    border-radius: 12px;
-    box-shadow: 0 2px 4px var(--shadow-color);
+  background-color: var(--border-color);
+  transform: translateY(-1px);
 }
 
 @media (max-width: 640px) {
-    .app {
-        padding: 16px;
-    }
+  .app {
+    padding: 16px;
+  }
 
-    .title {
-        font-size: 22px;
-        margin-bottom: 32px;
-    }
+  .title {
+    font-size: 22px;
+    margin-bottom: 32px;
+  }
 
-    .authCard {
-        padding: 24px;
-        max-width: 360px;
-    }
+  .signOutButton {
+    top: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+  }
 
-    .modal {
-        padding: 16px;
-        max-width: 320px;
-    }
-
-    .projectForm {
-        grid-template-columns: 1fr;
-    }
-
-    .projectForm input:nth-child(3),
-    .projectForm button {
-        grid-column: 1 / 2;
-    }
-
-    .projectForm button {
-        min-width: 100%;
-    }
-
-    .project {
-        padding: 20px;
-    }
-
-    .projectText {
-        font-size: 13px;
-    }
-
-    .signOutButton {
-        top: 16px;
-        right: 16px;
-        width: 40px;
-        height: 40px;
-    }
-
-    .signOutButton svg {
-        width: 20px;
-        height: 20px;
-    }
-
-    .techTag {
-        font-size: 11px;
-        padding: 3px 6px;
-    }
-
-    .notesButton {
-        font-size: 13px;
-        padding: 6px 12px;
-    }
+  .signOutButton svg {
+    width: 20px;
+    height: 20px;
+  }
 }

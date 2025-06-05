@@ -1,0 +1,159 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sectionTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 8px;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 8px;
+}
+
+.searchInput {
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+  background: var(--card-bg);
+  color: var(--text-color);
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
+  margin-bottom: 16px;
+}
+
+.searchInput:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.1);
+}
+
+.projectList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.project {
+  background: var(--card-bg);
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow:
+    0 4px 6px -1px var(--shadow-color),
+    0 2px 4px -1px var(--shadow-color);
+  animation: fadeIn 0.5s ease-in;
+  will-change: transform, opacity;
+}
+
+.project:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 15px -3px var(--shadow-color);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.projectTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0 0 12px;
+}
+
+.projectText {
+  font-size: 14px;
+  color: var(--secondary-text);
+  margin: 6px 0;
+}
+
+.techStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.techTag {
+  padding: 4px 8px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--secondary-accent);
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.2s, filter 0.2s;
+  will-change: transform;
+}
+
+.techTag:hover {
+  background-color: var(--secondary-accent);
+  color: #ffffff;
+  filter: brightness(1.1);
+  transform: scale(1.07);
+}
+
+.notesButton {
+  padding: 8px 16px;
+  background-color: var(--accent-color);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    transform 0.2s;
+  will-change: transform;
+}
+
+.notesButton:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.emptyMessage {
+  font-size: 16px;
+  color: var(--secondary-text);
+  text-align: center;
+  padding: 16px;
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+@media (max-width: 640px) {
+  .project {
+    padding: 20px;
+  }
+
+  .projectText {
+    font-size: 13px;
+  }
+
+  .techTag {
+    font-size: 11px;
+    padding: 3px 6px;
+  }
+
+  .notesButton {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+}
