@@ -1,0 +1,251 @@
+.taskListContainer {
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  color: #333;
+  font-family: "Segoe UI", sans-serif;
+  margin-bottom: 2rem;
+}
+
+.taskListHeader {
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 0.5rem;
+  color: #444;
+}
+
+.taskListItems {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.taskListItem {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+  display: grid;
+  grid-template-columns: auto auto 1fr auto auto;
+  align-items: center;
+  gap: 1rem;
+  transition: background 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.taskListItem:hover {
+  background: #f8faff;
+  border-color: #007bff;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.15);
+}
+
+.dragHandle {
+  cursor: grab;
+  display: flex;
+  align-items: center;
+  padding: 0 1px;
+  user-select: none;
+  color: #888;
+  transition: color 0.2s ease;
+}
+
+.dragHandle:hover {
+  color: #333;
+}
+
+.taskDone {
+  opacity: 0.5;
+  text-decoration: line-through !important;
+}
+
+.taskCheckbox {
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+}
+
+.taskTitle {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #222;
+}
+
+.taskTitleInput {
+  font-size: 1rem;
+  background: #fff;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  color: #222;
+  transition: border-color 0.3s ease;
+  width: 100%;
+}
+
+.taskTitleInput:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.taskDetails {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.taskSelect,
+.taskDate {
+  background: #fff;
+  color: #333;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.95rem;
+  appearance: none;
+}
+
+.taskDate {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  user-select: none;
+}
+
+.taskPriorityTag {
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 12px;
+  padding: 0.3rem 0.8rem;
+  text-transform: capitalize;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.priorityLow {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.priorityMedium {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.priorityHigh {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.taskButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #d9534f;
+  padding: 0.3rem;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.taskButton:hover {
+  background-color: #f8d7da;
+}
+
+.taskButton svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2;
+  stroke: #dc3545;
+}
+
+.taskButton::after {
+  content: attr(data-tooltip);
+  visibility: hidden;
+  opacity: 0;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+  position: absolute;
+  z-index: 1;
+  bottom: 130%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.2s ease-in-out;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.taskButton:hover::after {
+  visibility: visible;
+  opacity: 1;
+}
+
+.taskInputWrapper {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.taskInputField {
+  flex-grow: 1;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  border: 2px solid #ccc;
+  background-color: #fff;
+  color: #222;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.taskInputField:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.taskAddButton {
+  background-color: #28a745;
+  color: white;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+  border: none;
+}
+
+.taskAddButton:hover {
+  background-color: #218838;
+}
+
+@media (max-width: 768px) {
+  .taskListItem {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .taskDetails {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .taskInputWrapper {
+    flex-direction: column;
+  }
+
+  .taskInputField {
+    width: 100%;
+  }
+
+  .taskAddButton {
+    width: 100%;
+  }
+}

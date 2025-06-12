@@ -3,6 +3,8 @@ import { doc, setDoc } from "firebase/firestore";
 import ReactMarkdown from "react-markdown";
 import styles from "./ProjectDetail.module.css";
 import { db } from "../../firebase";
+import TaskList from "../TaskList/TaskList";
+import TimeLine from "../TimeLine/TimeLine";
 
 function ProjectDetail({ project, onClose, refreshProjects }) {
   const [name, setName] = useState(project?.name || "");
@@ -11,6 +13,7 @@ function ProjectDetail({ project, onClose, refreshProjects }) {
     project.techStack.join(", ") || ""
   );
   const [notes, setNotes] = useState(project.notes || "");
+  const [timeline, setTimeline] = useState(project.timeline || []);
   const [isEditing, setIsEditing] = useState(false);
   const [saving, setSaving] = useState(false);
   const [hasChanges, setHasChanges] = useState(false);
@@ -30,6 +33,7 @@ function ProjectDetail({ project, onClose, refreshProjects }) {
             .map((t) => t.trim())
             .filter(Boolean),
           notes,
+          timeline,
         },
         { merge: true }
       );
@@ -126,6 +130,18 @@ function ProjectDetail({ project, onClose, refreshProjects }) {
               <ReactMarkdown>{notes}</ReactMarkdown>
             </div>
           )}
+        </section>
+
+        <section className={styles.section}>
+          <TaskList projectId={project.id} isEditing={isEditing} />
+        </section>
+
+        <section className={styles.section}>
+          <TimeLine
+            timeline={timeline}
+            setTimeline={setTimeline}
+            isEditing={isEditing}
+          />
         </section>
 
         {isEditing && (
